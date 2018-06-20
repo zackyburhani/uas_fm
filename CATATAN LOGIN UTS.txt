@@ -1,0 +1,22 @@
+LOGIN APLIKASI
+
+Database ada di folder root CI dengan nama folder "Database" dan nama file "perpustakaan.sql"
+
+Auth = 1
+Username : admin
+Pass	 : admin
+
+Auth = 2
+Username : zackyburhani
+Pass	 : 123
+
+Auth = 3
+Username : faiz
+Pass	 : 123
+
+=========================================
+UTS Pemrograman Web Berbasis Framework	|
+NIM 	: 1512502707			|
+Nama	: Zacky Burhani Hotib		|
+Kelp.	: SI				|
+=========================================
