@@ -1,8 +1,16 @@
 LOGIN APLIKASI
 
-Database ada di folder root CI dengan nama folder "Database" dan nama file "perpustakaan.sql"
+Database ada di folder root CI dengan nama folder "Database" dan nama file "1512502707_UAS_SI.sql"
 
-Auth = 1
+level_user = 0 untuk admin,
+level_user = 1 untuk dosen,
+level_user = 2 untuk mahasiswa,
+
+untuk login bisa dilihat ditable user dengan username yang tertera difield dengan semua password '123' (tanpa tanda kutip).
+
+dibawah ini contoh akun untuk login yang sudah tersimpan didalam database.
+
+Auth = 0
 Username : admin
 Pass	 : admin
 
@@ -11,12 +19,12 @@ Username : zackyburhani
 Pass	 : 123
 
 Auth = 3
-Username : faiz
+Username : abdulmuis
 Pass	 : 123
 
 =========================================
-UTS Pemrograman Web Berbasis Framework	|
-NIM 	: 1512502707			|
-Nama	: Zacky Burhani Hotib		|
-Kelp.	: SI				|
+UAS Pemrograman Web Berbasis Framework	|
+NIM 	: 1512502707					|
+Nama	: Zacky Burhani Hotib			|
+Kelp.	: SI							|
 =========================================

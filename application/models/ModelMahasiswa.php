@@ -1,5 +1,11 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
+/*---------------------------UAS/GENAP/2017/2018---------------------------------/*
+| NIM  : 1512502707			    | MATKUL  : PEMROGRAMAN WEB BERBASIS FRAMEWORK   |
+| NAMA : ZACKY BURHANI HOTIB	| DOSEN   : GALIH NABIHI						 |
+| KEL. : SI 					| TGL 	  : 26/05/2018							 |
+/*-------------------------------------------------------------------------------*/
+
 class ModelMahasiswa extends CI_Model {
 
     public function __construct(){
