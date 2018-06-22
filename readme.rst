@@ -2,13 +2,11 @@
 UAS PEMROGRAMAN WEB BERBASIS FRAMEWORK
 ###################
 
-APLIKASI KUESIONER DOSEN UNIVERSITAS BUDI LUHUR
+Aplikasi Kuesioner Dosen Universitas Budi Luhur
 
 *******************
-CREATED AND DEVELOPED BY 
+CREATED AND DEVELOPED BY : 1512502707 / ZACKY BURHANI HOTIB 
 *******************
-
-1512502707 / ZACKY BURHANI HOTIB
 
 -  `INSTAGRAM <https://www.instagram.com/zackyburhani/>`_
 -  `TWITTER <https://twitter.com/zackyburhanih/>`_
