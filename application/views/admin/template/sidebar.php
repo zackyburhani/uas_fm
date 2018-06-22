@@ -37,8 +37,13 @@
           </a>
         </li>
         <li>
-          <a href="<?php echo site_url('Chart'); ?>">
+          <a href="<?php echo site_url('admin/chart'); ?>">
             <i class="fa fa-pie-chart"></i> <span>Chart</span>
+          </a>
+        </li>
+        <li>
+          <a href="<?php echo site_url('Admin/pilihDosen'); ?>">
+            <i class="fa fa-file-excel-o"></i> <span>Eksport</span>
           </a>
         </li>
       </ul>
@@ -61,6 +66,11 @@
         <li>
           <a href="<?php echo site_url('Dosen'); ?>">
             <i class="fa fa-question-circle"></i> <span>Hasil Kuesioner</span>
+          </a>
+        </li>
+        <li>
+          <a href="<?php echo site_url('Dosen/Eksport'); ?>">
+            <i class="fa fa-pie-chart"></i> <span>Chart Dan Eksport</span>
           </a>
         </li>
       </ul>

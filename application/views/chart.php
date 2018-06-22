@@ -35,14 +35,14 @@ $(function () {
 		},
 		series: [{
 			type: 'pie',
-			name: 'Persentase Penduduk',
+			name: 'Persentase Nilai',
 			data: [
 					<?php 
 					// data yang diambil dari database
 					if(count($graph)>0)
 					{
 					   foreach ($graph as $data) {
-					   echo "['" .$data->provinsi . "'," . $data->jumlah ."],\n";
+					   echo "['" .$data->nm_dosen . "'," . $data->jumlah ."],\n";
 					   }
 					}
 					?>

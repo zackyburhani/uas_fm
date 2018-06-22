@@ -1,10 +1,10 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-/*---------------------------UTS/GENAP/2017/2018---------------------------------/*
+/*---------------------------UAS/GENAP/2017/2018---------------------------------/*
 | NIM  : 1512502707			    | MATKUL  : PEMROGRAMAN WEB BERBASIS FRAMEWORK   |
 | NAMA : ZACKY BURHANI HOTIB	| DOSEN   : GALIH NABIHI						 |
-| KEL. : SI 					| TGL 	  : 6/04/2018							 |
+| KEL. : SI 					| TGL 	  : 26/05/2018							 |
 /*-------------------------------------------------------------------------------*/
 
 class Admin extends CI_Controller {
@@ -16,6 +16,8 @@ class Admin extends CI_Controller {
 		$this->load->model('ModelAdmin');
 		$this->load->model('ModelDosen');
 		$this->load->model('ModelPertanyaan');
+		$this->load->model('ModelMahasiswa');
+		$this->load->library('Excel_generator');
 
 		$username = $this->session->username;
 
@@ -48,11 +50,14 @@ class Admin extends CI_Controller {
 ///////////////////////////Dosen//////////////////////////////// 
 	public function Dosen()
 	{
+		$nm_dosen     = $this->session->name;
+		$feedback 	  = $this->ModelAdmin->hasilDosen($nm_dosen);
 		$username 	  = $this->session->username;
 		$level_user	  = $this->session->level_user;
 		$getAllDosen  = $this->ModelDosen->getAllDosen();
 		$getKodeDosen = $this->ModelDosen->getKodeDosen(); 
 		$data 	  = [
+			'feedback' => $feedback,
 			'getKodeDosen' => $getKodeDosen,
 			'getAllDosen' => $getAllDosen,
 			'username' => $username,
@@ -285,6 +290,65 @@ class Admin extends CI_Controller {
     		redirect('Admin/user');
 		}
 	}
+
+	public function chart()
+	{
+		$graph = $this->ModelAdmin->topdosen();
+		$fakultas = $this->ModelAdmin->fakultas();
+		$username = $this->session->username;
+		$level_user = $this->session->level_user;
+		$semuaData = $this->ModelAdmin->getAllUser();
+		$data = [
+			'fakultas' => $fakultas,
+			'dataUser' => $semuaData,
+			'username' => $username,
+			'level_user' => $level_user,
+			'graph' => $graph
+		];
+		$this->load->view('admin/template/header',$data);
+		$this->load->view('admin/template/sidebar',$data);
+		$this->load->view('admin/v_chart',$data);
+		$this->load->view('admin/template/footer',$data);
+	}
+
+
+	public function Eksport()
+	{
+		$nik = $this->input->post('nik');
+		$nm_dosen = $this->input->post('nm_dosen');
+        $query = $this->ModelAdmin->hasilDosen2($nik);
+        $this->excel_generator->set_query($query);
+        $this->excel_generator->set_header(array('PERTANYAAN', 'NAMA MAHASISWA', 'FEEDBACK'));
+        $this->excel_generator->set_column(array('nm_pertanyaan', 'nm_user', 'status'));
+        $this->excel_generator->set_width(array(25, 15, 30, 15));
+        $this->excel_generator->exportTo2007('Laporan Feedback '.$nm_dosen);
+	}
+
+	public function pilihDosen()
+	{
+		$get_Fakultas = $this->input->get('fakultas');
+		$getFakultas = $this->ModelMahasiswa->fakultas($get_Fakultas);
+
+		$nm_dosen     = $this->session->name;
+		$feedback 	  = $this->ModelAdmin->hasilDosen($nm_dosen);
+		$username 	  = $this->session->username;
+		$level_user	  = $this->session->level_user;
+		$getAllDosen  = $this->ModelDosen->getAllDosen();
+		$getKodeDosen = $this->ModelDosen->getKodeDosen(); 
+		$data 	  = [
+			'getChained' => $getFakultas,
+			'feedback' => $feedback,
+			'getKodeDosen' => $getKodeDosen,
+			'getAllDosen' => $getAllDosen,
+			'username' => $username,
+			'level_user' => $level_user,
+		];
+		$this->load->view('admin/template/header',$data);
+		$this->load->view('admin/template/sidebar',$data);
+		$this->load->view('admin/v_chart_dosen',$data);
+		$this->load->view('admin/template/footer',$data);
+	}
+
 
 
 }

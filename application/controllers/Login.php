@@ -43,7 +43,7 @@ class Login extends CI_Controller {
 		}else{
 			$newdata = array(
 				'username'  => $checkUsername->username,
-				'name'  => $checkUsername->nama,
+				'name'  => $checkUsername->nm_user,
 				'email'  => $checkUsername->email,
 				'level_user' =>$checkUsername->level_user
 			  );

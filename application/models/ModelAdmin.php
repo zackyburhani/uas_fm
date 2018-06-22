@@ -38,6 +38,12 @@ class ModelAdmin extends CI_Model {
     return $result->result();
   }
 
+  public function getchained($fakultas)
+  {
+    $query = $this->db->query("SELECT * FROM dosen where fakultas = '$fakultas'");
+    return $query->result();
+  }
+
   public function InsertUsername($data){
 
     $checkinsert = false;
@@ -79,10 +85,31 @@ class ModelAdmin extends CI_Model {
     return $query->num_rows();
   }
 
+  //top 5 dosen terbaik
+  public function topdosen()
+  {
+    $query = $this->db->query("SELECT COUNT(*) as jumlah ,dosen.nik,nm_dosen from nilai,dosen where nilai.nik = dosen.nik and status = 'sangat baik' or status = 'baik' GROUP by nik ORDER by COUNT(*) desc limit 5");
+    return $query->result();
+  }
 
-SELECT COUNT(nik) as jumlah ,nik, status from nilai where status = 'sangat baik' GROUP by nik
+  //jumah feedback fakultas
+  public function fakultas()
+  {
+    $query = $this->db->query("SELECT fakultas,COUNT(*) as jumlah FROM (SELECT dosen.nik,mahasiswa,fakultas,nm_dosen FROM nilai,dosen WHERE dosen.nik = nilai.nik GROUP by mahasiswa, dosen.nik) as x GROUP by fakultas");
+    return $query->result();
+  }
 
-SELECT max(jumlah) as terbesar FROM (SELECT COUNT(*) as jumlah ,nik from nilai where status = 'sangat baik' or status = 'baik' GROUP by nik) as a
+  //hasil
+  public function hasilDosen($nm_dosen)
+  {
+    $query = $this->db->query("SELECT nm_pertanyaan, nm_user, status FROM user,nilai,dosen,pertanyaan where pertanyaan.id_pertanyaan = nilai.id_pertanyaan and dosen.nik = nilai.nik and dosen.nm_dosen = '$nm_dosen' and user.username = nilai.mahasiswa  order by mahasiswa");
+    return $query;
+  }
 
+  public function hasilDosen2($nik)
+  {
+    $query = $this->db->query("SELECT nm_pertanyaan, nm_user, status FROM user,nilai,dosen,pertanyaan where pertanyaan.id_pertanyaan = nilai.id_pertanyaan and dosen.nik = nilai.nik and dosen.nik = '$nik' and user.username = nilai.mahasiswa  order by mahasiswa");
+    return $query;
+  }
 
 }

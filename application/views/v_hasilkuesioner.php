@@ -13,7 +13,7 @@
   <div class="col-lg-12">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <button class="btn btn-default" data-toggle="modal"data-target="#entryDosenModal"><i class="fa fa-plus"></i></button> Tambah Data Dosen
+        <button class="btn btn-default" data-toggle="modal"data-target="#entryDosenModal"><i class="fa fa-plus"></i></button> Tambah Data Dosen <?php echo $name ?>
       </div>
       <!-- /.panel-heading -->
       <div class="panel-body">
@@ -22,9 +22,9 @@
             <tr>
               <th style="width: 20px">No.</th>
               <th>Nama Mahasiswa</th>
-              <th>Feedback</th>
+              <th>Pendapat Mahasiswa</th>
               <th width="50px" align="center">Total Nilai</th>
-              <th class="text-center">Kesimpulan Kinerja</th>
+              <th class="text-center">Kesimpulan Feedback</th>
               <th width="50px">Lihat</th>
             </tr>
           </thead>

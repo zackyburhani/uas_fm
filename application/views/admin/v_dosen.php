@@ -1,7 +1,6 @@
 
 <section class="content-header">
   <h1>
-    Dashboard
     <small>Halaman Data Dosen</small>
   </h1>
 </section>

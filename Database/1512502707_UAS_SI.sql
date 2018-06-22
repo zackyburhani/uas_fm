@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jun 20, 2018 at 10:17 AM
+-- Generation Time: Jun 22, 2018 at 10:03 AM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.4
 
@@ -21,30 +21,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `1512502707_UAS_SI`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `datapenduduk`
---
-
-CREATE TABLE `datapenduduk` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `provinsi` varchar(20) NOT NULL,
-  `jumlah` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `datapenduduk`
---
-
-INSERT INTO `datapenduduk` (`id`, `provinsi`, `jumlah`) VALUES
-(1, 'Aceh', '3930905'),
-(2, 'DIY', '3450000'),
-(3, 'Jambi', '2413846'),
-(4, 'Riau', '4957627'),
-(5, 'Sumatera Barat', '4248931'),
-(6, 'Sumatera Utara', '11649655');
 
 -- --------------------------------------------------------
 
@@ -894,12 +870,6 @@ INSERT INTO `user` (`username`, `nm_user`, `email`, `password`, `level_user`) VA
 --
 
 --
--- Indexes for table `datapenduduk`
---
-ALTER TABLE `datapenduduk`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `dosen`
 --
 ALTER TABLE `dosen`
@@ -928,12 +898,6 @@ ALTER TABLE `user`
 --
 -- AUTO_INCREMENT for dumped tables
 --
-
---
--- AUTO_INCREMENT for table `datapenduduk`
---
-ALTER TABLE `datapenduduk`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `pertanyaan`

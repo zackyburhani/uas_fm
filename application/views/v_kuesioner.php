@@ -120,7 +120,7 @@
               </table>
             <?php } ?>
 
-            <div class="form-group"><label>Feedback</label>
+            <div class="form-group"><label>Kritik Dan Saran</label>
               <textarea required name="feedback" style="height: 70px;" class="form-control"></textarea>
             </div>
 

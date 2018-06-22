@@ -6,7 +6,7 @@
     		<div class="row">
     			<div class="form-group">
 					<div class="col-md-5">
-							<h4 style="margin-top: 20px;">Selamat Datang <i><?php echo $username ?></i> !</h4>
+							<h4 style="margin-top: 20px;">Selamat Datang <?php echo ucwords($this->session->name); ?> !</h4>
 						</div>
 				</div>
     		</div>
